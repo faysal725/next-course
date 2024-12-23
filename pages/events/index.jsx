@@ -1,12 +1,12 @@
 import EventList from '@/components/events/EventList'
 import EventsSearch from '@/components/events/events-search'
-import { getAllEvents } from '@/dummy-data'
+import { getAllEvents } from '@/helpers/api-utils'
 import { useRouter } from 'next/router';
 import React from 'react'
 
-export default function AllEventsPage() {
+export default function AllEventsPage(props) {
 
-  const allEvents = getAllEvents();
+  const allEvents = props.events
   const router = useRouter();
 
   
@@ -22,4 +22,17 @@ export default function AllEventsPage() {
       <EventList items={allEvents}/>
     </div>
   )
+}
+
+
+export async function getStaticProps() {
+  const events = await getAllEvents();
+
+
+  return  {
+    props: {
+      events: events
+    },
+    revalidate: 10
+  }
 }
