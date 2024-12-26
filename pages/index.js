@@ -4,27 +4,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home({ events }) {
+export default function Home() {
   return (
     <div className="">
-      <Head>
-        <title>Next Js Events</title>
-        <meta name="description" contenct="find ..."/>
-      </Head>
-      <EventList items={events} />
+      the home page
     </div>
   );
 }
 
-export async function getStaticProps() {
-  const featuredEvents = await getFeaturedEvents();
-
-  return {
-    props: {
-      events: featuredEvents,
-    },
-    revalidate: 1800,
-  };
-}
-
-// revalidate does generate this static page after given seconds
