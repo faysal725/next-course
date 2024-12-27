@@ -50,7 +50,10 @@ export default function Home() {
         <button>send feedback</button>
       </form>
       <hr />
-      <button onClick={loadFeedbackHandler}>Load Feedback</button>
+
+      <Link href={"/feedback"}>
+        <button>Load Feedback </button>
+      </Link>
 
       <ul>
         {FeedbackItems.map((item) => (
