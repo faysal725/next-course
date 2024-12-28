@@ -1,4 +1,5 @@
 import EventList from "@/components/events/EventList";
+import NewsletterRegistration from "@/components/input/newsletter-registration";
 import { getFeaturedEvents } from "@/helpers/api-utils";
 import Head from "next/head";
 import Image from "next/image";
@@ -11,6 +12,7 @@ export default function Home({ events }) {
         <title>Next Js Events</title>
         <meta name="description" contenct="find ..."/>
       </Head>
+      <NewsletterRegistration />
       <EventList items={events} />
     </div>
   );
