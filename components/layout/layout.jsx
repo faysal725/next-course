@@ -12,6 +12,7 @@ export default function Layout(props) {
       <MainHeader />
 
       <main>{props.children}</main>
+      
       {activeNotification && (
         <Notification
           title={activeNotification.title}

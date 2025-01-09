@@ -23,8 +23,6 @@ export function NotificationContextProvider(props) {
         clearTimeout(timer);
       };
     }
-
-
   }, [activeNotification]);
 
   function showNotificationHandler(notificationData) {
