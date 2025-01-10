@@ -1,29 +1,49 @@
-import { getFeaturedEvents } from "@/helpers/api-utils";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import FeaturedPost from "@/components/home-page/FeaturedPost";
+import Hero from "@/components/home-page/Hero";
+import React from "react";
 
-export default function Home({ events }) {
+const DUMMY_POSTS = [
+  {
+    slug: "getting-started-with-nextjs",
+    title: "this is title",
+    image: "getting-started-nextjs.png",
+    excerpt:
+      "next js is the react framework form production - it makes building fullstack.",
+    date: "2022-02-10",
+  },
+
+  {
+    slug: "getting-started-with-nextjs",
+    title: "this is title",
+    image: "getting-started-nextjs.png",
+    excerpt:
+      "next js is the react framework form production - it makes building fullstack.",
+    date: "2022-02-10",
+  },
+
+  {
+    slug: "getting-started-with-nextjs",
+    title: "this is title",
+    image: "getting-started-nextjs.png",
+    excerpt:
+      "next js is the react framework form production - it makes building fullstack.",
+    date: "2022-02-10",
+  },
+  {
+    slug: "getting-started-with-nextjs",
+    title: "this is title",
+    image: "getting-started-nextjs.png",
+    excerpt:
+      "next js is the react framework form production - it makes building fullstack.",
+    date: "2022-02-10",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="">
-      <Head>
-        <title>Next Js Events</title>
-        <meta name="description" contenct="find ..."/>
-      </Head>
-      asdfsdf
-    </div>
+    <>
+      <Hero />
+      <FeaturedPost posts={DUMMY_POSTS} />
+    </>
   );
 }
-
-export async function getStaticProps() {
-  const featuredEvents = await getFeaturedEvents();
-
-  return {
-    props: {
-      events: featuredEvents,
-    },
-    revalidate: 1800,
-  };
-}
-
-// revalidate does generate this static page after given seconds
