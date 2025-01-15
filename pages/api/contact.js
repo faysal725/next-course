@@ -24,9 +24,10 @@ async function handler(req, res) {
     };
 
     let client;
+    const connectionString = `${process.env.mongodb_connection}/${process.env.mongodb_blog_database}`
     try {
         // connect to database 
-      client = await MongoClient.connect("mongodb://localhost:27017/blog");
+      client = await MongoClient.connect(connectionString);
     } catch (error) {
       client.close();
       res.status(500).json({ message: "could not connect to database" });
