@@ -6,7 +6,7 @@ function MainNavigation() {
   // const [session, loading] = useSession();
 
   function logoutHandler() {
-    signOut();
+    // signOut();
   }
 
   return (
