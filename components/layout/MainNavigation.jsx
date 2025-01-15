@@ -1,22 +1,32 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import classes from "./MainNavigation.module.css";
-import Logo from "./Logo";
+import classes from './main-navigation.module.css';
 
 function MainNavigation() {
+  // const [session, loading] = useSession();
+
+  function logoutHandler() {
+    signOut();
+  }
+
   return (
     <header className={classes.header}>
-      <Link href="/">
-        <Logo />
+      <Link href='/' legacyBehavior>
+        <a>
+          <div className={classes.logo}>Next Auth</div>
+        </a>
       </Link>
       <nav>
         <ul>
-          <li>
-            <Link href="/posts">Posts</Link>
-          </li>
-          <li>
-            <Link href="/contact">Contact</Link>
-          </li>
+            <li>
+              <Link href='/auth'>Login</Link>
+            </li>
+            <li>
+              <Link href='/profile'>Profile</Link>
+            </li>
+            <li>
+              <button onClick={logoutHandler}>Logout</button>
+            </li>
         </ul>
       </nav>
     </header>
